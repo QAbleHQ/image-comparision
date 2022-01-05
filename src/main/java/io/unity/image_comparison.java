@@ -25,15 +25,19 @@ public class image_comparison {
     }
 
 
-    public String create_browser_directory() {
+    private String create_browser_directory() {
         json_file_reader config_reader = new json_file_reader();
 
 
-        Path screen_shot_path = Paths.get("./src/test/resources/visual_test/base_images" + config_reader.get_browser());
-        if (!Files.isDirectory(screen_shot_path)) {
+        Path screen_shot_path = Paths.get("src/test/resources/visual_test/base_images/" + config_reader.get_browser());
+        File file = new File(screen_shot_path.toAbsolutePath().toString());
+
+        if (!file.exists()) {
             try {
-                Files.createTempDirectory(screen_shot_path.toAbsolutePath().toString());
-            } catch (IOException e) {
+                System.out.println(screen_shot_path.toAbsolutePath().toString());
+                file.mkdir();
+
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
@@ -41,19 +45,22 @@ public class image_comparison {
         return screen_shot_path.toAbsolutePath().toString();
     }
 
-    public String create_actual_directory() {
+    private String create_actual_directory() {
         json_file_reader config_reader = new json_file_reader();
 
 
-        Path screen_shot_path = Paths.get("./src/test/resources/visual_test/actual_images" + config_reader.get_browser());
-        if (!Files.isDirectory(screen_shot_path)) {
+        Path screen_shot_path = Paths.get("./src/test/resources/visual_test/actual_images/" + config_reader.get_browser());
+
+        File file = new File(screen_shot_path.toAbsolutePath().toString());
+        if (!file.exists()) {
             try {
-                Files.createTempDirectory(screen_shot_path.toAbsolutePath().toString());
-            } catch (IOException e) {
+                System.out.println(screen_shot_path.toAbsolutePath().toString());
+                file.mkdir();
+
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-
         return screen_shot_path.toAbsolutePath().toString();
     }
 

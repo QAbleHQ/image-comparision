@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>groupId</groupId>
+    <groupId>unity</groupId>
     <artifactId>image-comparision</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.12</version>
 
 
     <distributionManagement>
@@ -48,7 +48,7 @@
         <dependency>
             <groupId>unity</groupId>
             <artifactId>autoweb-core</artifactId>
-            <version>0.0.2.017</version>
+            <version>0.0.2.018</version>
         </dependency>
     </dependencies>
 
